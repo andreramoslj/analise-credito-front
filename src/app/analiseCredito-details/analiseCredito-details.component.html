@@ -1,0 +1,41 @@
+<h2>Análise de Crédito</h2> 
+
+<hr/>
+<div *ngIf="analiseCredito">
+  <div>
+    <label><b>Nome: </b></label> {{analiseCredito.nome}}
+  </div>
+  <div>
+    <label><b>Cpf: </b></label> {{analiseCredito.cpf}}
+  </div>
+  <div>
+    <label><b>Idade: </b></label> {{analiseCredito.idade}}
+  </div>  
+  <div>
+    <label><b>Sexo: </b></label> {{analiseCredito.sexo}}
+  </div>  
+  <div>
+    <label><b>Est Civil: </b></label> {{analiseCredito.estadoCivil}}
+  </div>  
+  <div>
+    <label><b>Dependentes: </b></label> {{analiseCredito.dependentes}}
+  </div>  
+  <div>
+    <label><b>Renda: </b></label> {{analiseCredito.renda}}
+  </div>  
+  <div>
+    <label><b>Status: </b></label> {{analiseCredito.status}}
+  </div>  
+  <div>
+    <label><b>Limite Min: </b></label> {{analiseCredito.limiteMinimo}}
+  </div> 
+  <div>
+    <label><b>Limite Max: </b></label> {{analiseCredito.limiteMaximo}}
+  </div> 
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Voltar</button><br>
+
+

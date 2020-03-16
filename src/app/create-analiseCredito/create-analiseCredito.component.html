@@ -1,0 +1,59 @@
+<h3>Proposta</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input  placeholder="Informe o Nome" type="text" class="form-control" id="nome" required [(ngModel)]="analiseCredito.nome" name="nome">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Cpf</label>
+      
+      <input type="text" id="cpf" name="cpf" [(ngModel)]="analiseCredito.cpf" class="form-control" 
+      placeholder="Informe o CPF" [textMask]="{mask: mascaraCpf}" pattern="^([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})$">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Idade</label>
+      <input placeholder="Informe a Idade" type="text" class="form-control" id="idade" required [(ngModel)]="analiseCredito.idade" name="idade" NumberOnly>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Sexo</label>
+      <select id="sexo" name="sexo" class="form-control" [(ngModel)]="analiseCredito.sexo">
+        <option selected value="MASCULINO">Masculino</option>
+        <option selected value="FEMININO">Feminino</option>
+    </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Estado Civil</label>
+      <select id="estadoCivil" name="estadoCivil" class="form-control" [(ngModel)]="analiseCredito.estadoCivil">
+        <option selected value="SOLTEIRO">Solteiro</option>
+        <option selected value="CASADO">Casado</option>
+        <option selected value="DIVORCIADO">Divorciado</option>
+    </select>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Dependentes</label>
+      <input placeholder="Nº de Dependentes" type="text" class="form-control" id="dependentes" required [(ngModel)]="analiseCredito.dependentes" name="dependentes" NumberOnly>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Renda</label>
+      <input placeholder="Renda Bruta Mensal" type="text" class="form-control" id="renda" required [(ngModel)]="analiseCredito.renda" name="renda"  currencyMask  [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',',  align: 'left'}">
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Salvo com Sucesso!</h4>
+  <!-- <button class="btn btn-success" (click)="newAnaliseCredito()">Add</button> -->
+</div>
