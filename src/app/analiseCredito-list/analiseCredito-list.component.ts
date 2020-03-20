@@ -12,7 +12,9 @@ import { Router } from '@angular/router';
 })
 export class AnaliseCreditoListComponent implements OnInit {
   analiseCreditos: Observable<AnaliseCredito[]>;
-
+  cpf: string
+  mascaraCpf = [/\d/, /\d/, /\d/,'.', /\d/, /\d/, /\d/, '.', /\d/, /\d/, /\d/, '-', /\d/, /\d/];
+  
   constructor(private analiseCreditoService: AnaliseCreditoService,
     private router: Router) {}
 
@@ -22,6 +24,10 @@ export class AnaliseCreditoListComponent implements OnInit {
 
   reloadData() {
     this.analiseCreditos = this.analiseCreditoService.getAnaliseCreditosList();
+  }
+
+  reloadDataCpf() {
+    this.analiseCreditos = this.analiseCreditoService.getAnaliseCreditosListCpf(this.cpf);
   }
 
   deleteAnaliseCredito(id: number) {

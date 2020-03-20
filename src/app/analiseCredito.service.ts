@@ -30,4 +30,8 @@ export class AnaliseCreditoService {
   getAnaliseCreditosList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getAnaliseCreditosListCpf(cpf: string ): Observable<any> {
+    return this.http.get(`${this.baseUrl}/consultar?cpf=${cpf}`);
+  }
 }

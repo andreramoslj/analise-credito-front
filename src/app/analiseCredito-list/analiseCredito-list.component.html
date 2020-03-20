@@ -1,33 +1,47 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Últimas Propostas</h2>
-  </div>
-  <div class="panel-body">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>CPF</th>
-          <th>Status</th>
-          <th>Limite Min.</th>
-          <th>Limite Max.</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let analiseCredito of analiseCreditos | async">
-          <td>{{analiseCredito.nome}}</td>
-          <td>{{analiseCredito.cpf}}</td>
-          <td>{{analiseCredito.status}}</td>
-          <td>{{analiseCredito.limiteMinimo}}</td>
-          <td>{{analiseCredito.limiteMaximo}}</td>
-          <td><button (click)="deleteAnaliseCredito(analiseCredito.id)" class="btn btn-danger">Deletar</button>
-              
-              <button (click)="analiseCreditoDetails(analiseCredito.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
 
+  <fieldset>
+    <div class="form-group">
+      <label for="cpf"> <b> CPF </b> </label>
+      
+      <input type="text" name="cpf" [(ngModel)]="cpf"
+      placeholder="___.___.___-__" [textMask]="{mask: mascaraCpf}" pattern="^([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})$">
+  
+  
+      <button (click)="reloadDataCpf();" class="btn btn-info" style="margin-left: 20px" >Pesquisar</button>
+    </div>
+  </fieldset>
+  
+  
+    <div class="panel-heading">
+      <h2>Ultimas Propostas</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Status</th>
+            <th>Limite Min.</th>
+            <th>Limite Max.</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let analiseCredito of analiseCreditos | async">
+            <td>{{analiseCredito.nome}}</td>
+            <td>{{analiseCredito.cpf}}</td>
+            <td>{{analiseCredito.status}}</td>
+            <td>{{analiseCredito.limiteMinimo}}</td>
+            <td>{{analiseCredito.limiteMaximo}}</td>
+            <td><button (click)="deleteAnaliseCredito(analiseCredito.id)" class="btn btn-danger">Deletar</button>
+                
+                <button (click)="analiseCreditoDetails(analiseCredito.id)" class="btn btn-info" style="margin-left: 10px">Detalhes</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
