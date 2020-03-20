@@ -1,0 +1,22 @@
+version: '2'
+services:
+  analise-credito-back:
+    image: analise-credito-back
+    container_name: analise-credito-back-cont-1
+    ports:
+      - "8080:8080"
+    networks: 
+      - net-card
+  analise-credito-front:
+    image: analise-credito-front
+    container_name: analise-credito-front-cont-2
+    ports:
+      - "4200:4200"
+    networks: 
+      - net-card
+    depends_on: 
+      - "analise-credito-back"
+
+networks: 
+  net-card: 
+    driver: bridge    
